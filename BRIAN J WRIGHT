@@ -1,0 +1,26 @@
+import time
+import pulse_sensor  # Assuming you have a library to read pulse sensor data
+
+def main():
+    # Initialize pulse sensor
+    sensor = pulse_sensor.PulseSensor()
+    
+    while True:
+        # Read heart rate from the sensor
+        heart_rate = sensor.get_beats_per_minute()
+        
+        # Calculate time between beeps based on heart rate
+        beep_interval = 60 / heart_rate  
+        
+        # Play a beep sound
+        play_beep()  
+        
+        # Wait for the calculated interval
+        time.sleep(beep_interval) 
+
+# Placeholder function to play a beep sound
+def play_beep():
+    print("Beep!")  # Replace this with actual sound playing code based on your platform 
+
+if __name__ == "__main__":
+    main()
